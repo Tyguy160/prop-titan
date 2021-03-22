@@ -37,7 +37,6 @@ export default {
   methods: {
     addNewProperty(property) {
       this.properties.push(JSON.parse(JSON.stringify(property)));
-      console.log("Got a new property");
     },
   },
 };

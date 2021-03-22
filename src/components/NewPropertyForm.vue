@@ -312,9 +312,8 @@
                         cols="3"
                       >
                         <v-card class="px-4 py-4">
-                          <!-- <v-col cols="3"> -->
                           <h3>Unit {{ unit }}</h3>
-                          <!-- <v-row> -->
+
                           <v-text-field
                             v-model="property.rental.units[index].rent"
                             type="number"
@@ -331,8 +330,6 @@
                             v-model="property.rental.units[index].rented"
                             label="Currently rented"
                           ></v-switch>
-                          <!-- </v-row> -->
-                          <!-- </v-col> -->
                         </v-card>
                       </v-col>
                     </v-row>
@@ -557,7 +554,8 @@ export default {
   watch: {
     /*   
     TODO There's a nasty corner case where if we pre-fill the units,
-    TODO then we end up not filling up the array with each rental unit object
+    TODO then we end up not filling up the array with each rental unit object...
+    TODO but then again, they shouldn't ever have access to making it null 🤔
     */
     units(newUnits, oldUnits) {
       // If the user sets the number of units to be null
@@ -570,7 +568,6 @@ export default {
       else if (newUnits > oldUnits) {
         let delta = newUnits - oldUnits;
         for (let i = 0; i < delta; i++) {
-          console.log("Added a unit to the array");
           this.property.rental.units.push({
             rent: null,
             rented: false,
@@ -579,7 +576,6 @@ export default {
       } else if (newUnits < oldUnits) {
         let delta = oldUnits - newUnits;
         for (let i = 0; i < delta; i++) {
-          console.log("Removed a unit from the array");
           this.property.rental.units.pop();
         }
       }
