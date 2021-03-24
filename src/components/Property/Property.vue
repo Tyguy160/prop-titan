@@ -1,18 +1,29 @@
 <template>
-  <v-card class="px-0 py-4" elevation="2">
-    <h3 class="px-4">
-      {{
-        property.location.nickname
-          ? `${property.location.nickname} –`
-          : `${property.location.address1},`
-      }}
-
-      {{ property.location.nickname ? property.location.address1 : ""
-      }}{{ property.location.address2 }}
-
-      {{ property.location.city }}, {{ property.location.state }}
-      {{ property.location.zipCode }}
-    </h3>
+  <v-card class="px-8 py-8" elevation="2" max-width="500px">
+    <div class="d-flex flex-row pb-4">
+      <div
+        style="background-color: lightgrey; min-height: 100px; min-width: 100px"
+      ></div>
+      <div class="px-4 d-flex flex-column">
+        <h3>
+          {{
+            property.location.nickname
+              ? `${property.location.nickname}`
+              : `${property.location.address1}`
+          }}
+        </h3>
+        <div>
+          {{ property.location.nickname ? property.location.address1 : "" }}
+        </div>
+        <div>
+          {{ property.location.address2 }}
+        </div>
+        <div>
+          {{ property.location.city }}, {{ property.location.state }}
+          {{ property.location.zipCode }}
+        </div>
+      </div>
+    </div>
     <v-tabs
       centered
       fixed-tabs

@@ -406,6 +406,7 @@ export default {
         squareFootage: "2200",
         type: "Multi-family home",
         units: null,
+        notes: "This is a note!",
       },
       loan: {
         downPayment: "10000",

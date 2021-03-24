@@ -6,8 +6,8 @@
     <Nav></Nav>
 
     <v-main>
-      <v-container fluid>
-        <div class="py-2" v-for="(property, i) in properties" :key="i">
+      <v-container fluid class="d-flex flex-row flex-wrap">
+        <div class="px-4 py-4" v-for="(property, i) in properties" :key="i">
           <property :property="property"></property>
         </div>
       </v-container>
